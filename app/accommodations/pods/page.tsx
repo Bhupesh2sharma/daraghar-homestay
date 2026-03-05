@@ -6,27 +6,26 @@ import Footer from '@/components/footer'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
-import { Check, Users, Flame, BookOpen } from 'lucide-react'
+import { Check, Wind, Utensils, Leaf, Sparkles } from 'lucide-react'
 
-const HOMESTAY_IMAGES = [
-  '/images/img-hero.jpeg',
-  '/images/hero-sec.jpeg',
-  '/images/WhatsApp Image 2026-03-05 at 14.31.48 (1).jpeg',
-  '/images/WhatsApp Image 2026-03-05 at 14.32.00.jpeg',
+const PODS_IMAGES = [
+  '/images/WhatsApp Image 2026-03-05 at 14.31.47 (2).jpeg',
+  '/images/WhatsApp Image 2026-03-05 at 14.31.49.jpeg',
+  '/images/WhatsApp Image 2026-03-05 at 14.31.54.jpeg',
 ]
 
-export default function HomestayPage() {
+export default function PodsPage() {
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
-      
+
       <div className="pt-32 pb-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center space-y-4 mb-12">
-            <h1 className="text-4xl sm:text-5xl font-bold">Authentic Homestays</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold">Tents & Mountain Wellness Pods</h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Experience genuine Sikkimese hospitality and immerse yourself in local culture
+              Modern eco-friendly pods and tents with panoramic views — where comfort meets nature
             </p>
             <div className="space-y-1">
               <p className="text-2xl font-bold text-primary">₹1,500 / person</p>
@@ -37,8 +36,8 @@ export default function HomestayPage() {
           {/* Main Image */}
           <div className="relative h-96 sm:h-[28rem] md:h-[32rem] rounded-2xl overflow-hidden shadow-2xl mb-12">
             <Image
-              src={encodeURI(HOMESTAY_IMAGES[0])}
-              alt="Authentic Homestays at THE LUING VILLAGE"
+              src={encodeURI(PODS_IMAGES[0])}
+              alt="Tents & Mountain Wellness Pods at THE LUING VILLAGE"
               fill
               className="object-cover"
               priority
@@ -51,24 +50,24 @@ export default function HomestayPage() {
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             <div className="md:col-span-2 space-y-6">
               <div>
-                <h2 className="text-2xl font-bold mb-4">About Our Homestays</h2>
+                <h2 className="text-2xl font-bold mb-4">About Our Tents & Wellness Pods</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Stay with local Sikkimese families and experience authentic mountain life. Our carefully selected homestays offer warm hospitality, home-cooked organic meals, and genuine cultural immersion. Wake up to mountain views, share stories with your host family, and create memories that last a lifetime.
+                  At THE LUING VILLAGE, our tents and mountain wellness pods offer a unique blend of sustainable design and comfort. Whether you choose a cozy tent nestled in the greenery or a modern pod with sky windows, you&apos;ll wake up to birdsong, fresh mountain air, and stunning views. Each space is designed for rest, reflection, and reconnection with nature.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-xl font-bold mb-4">What to Expect</h3>
+                <h3 className="text-xl font-bold mb-4">Key Features</h3>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {[
-                    'Warm family atmosphere',
-                    'Traditional Sikkimese meals',
-                    'Organic home-grown produce',
-                    'Local language learning',
-                    'Village exploration tours',
-                    'Cultural storytelling',
-                    'Traditional cooking classes',
-                    'Family bonding activities',
+                    'Sustainable, eco-friendly design',
+                    'Nature sounds & peaceful setting',
+                    'Meditation space & sky windows',
+                    'Panoramic mountain views',
+                    'Comfortable bedding & heating',
+                    'Private deck or sit-out',
+                    'Organic meals (dinner & breakfast)',
+                    'Plastic-free environment',
                   ].map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-3">
                       <Check size={20} className="text-primary flex-shrink-0" />
@@ -87,10 +86,10 @@ export default function HomestayPage() {
                     <h3 className="font-bold text-lg mb-4">What&apos;s Included</h3>
                     <div className="space-y-3">
                       {[
-                        { icon: Users, text: 'Family welcome' },
-                        { icon: Flame, text: 'Dinner & breakfast' },
-                        { icon: BookOpen, text: 'Cultural tours' },
-                        { icon: Users, text: 'English speaking guide' },
+                        { icon: Utensils, text: 'Dinner & breakfast' },
+                        { icon: Leaf, text: 'Eco-friendly amenities' },
+                        { icon: Wind, text: 'Mountain views' },
+                        { icon: Sparkles, text: 'Wellness-focused stay' },
                       ].map((item, idx) => {
                         const Icon = item.icon
                         return (
@@ -111,7 +110,7 @@ export default function HomestayPage() {
 
                   <Link href="/contact" className="block">
                     <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/5">
-                      Ask Questions
+                      Request Information
                     </Button>
                   </Link>
                 </CardContent>
@@ -121,34 +120,34 @@ export default function HomestayPage() {
 
           {/* Gallery Grid */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-8">Photo Gallery</h2>
-            <div className="grid md:grid-cols-4 gap-4">
-              {HOMESTAY_IMAGES.map((src, idx) => (
-                <div key={idx} className="relative h-48 rounded-lg overflow-hidden group">
+            <h2 className="text-2xl font-bold mb-8">Gallery</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              {PODS_IMAGES.map((src, idx) => (
+                <div key={idx} className="relative h-56 md:h-64 rounded-lg overflow-hidden group">
                   <Image
                     src={encodeURI(src)}
-                    alt={`Authentic Homestays - ${idx + 1}`}
+                    alt={`Tents & Wellness Pods - ${idx + 1}`}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    sizes="(max-width: 768px) 50vw, 25vw"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Details */}
+          {/* Amenities */}
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div>
-              <h3 className="text-xl font-bold mb-4">Room Features</h3>
+              <h3 className="text-xl font-bold mb-4">In Your Pod / Tent</h3>
               <ul className="space-y-3">
                 {[
-                  'Comfortable private bedroom',
-                  'Shared family bathroom',
-                  'Traditional furnishings',
-                  'Mountain views',
-                  'Natural lighting',
-                  'Quiet and peaceful setting',
+                  'Comfortable mattress & bedding',
+                  'Sky windows or mesh for stargazing',
+                  'Reading light & charging point',
+                  'Natural ventilation',
+                  'Eco toiletries',
+                  'Tea/coffee on request',
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-center gap-3">
                     <span className="w-2 h-2 rounded-full bg-primary" />
@@ -159,15 +158,15 @@ export default function HomestayPage() {
             </div>
 
             <div>
-              <h3 className="text-xl font-bold mb-4">Culinary Experience</h3>
+              <h3 className="text-xl font-bold mb-4">Around THE LUING VILLAGE</h3>
               <ul className="space-y-3">
                 {[
-                  'Breakfast: Fresh local fruits & bread',
-                  'Lunch: Traditional Sikkimese curry',
-                  'Dinner: Home-cooked organic meals',
-                  'Fresh milk and dairy from local farms',
-                  'Herbal teas and local beverages',
-                  'Special meals upon request',
+                  'Meditation & quiet zones',
+                  'Organic garden & farm',
+                  'Bonfire & lounge area',
+                  'Walking trails',
+                  'Local guide on request',
+                  'Plastic-free policy',
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-center gap-3">
                     <span className="w-2 h-2 rounded-full bg-primary" />
@@ -180,14 +179,14 @@ export default function HomestayPage() {
 
           {/* CTA */}
           <div className="bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-bold mb-4">Experience True Hospitality</h3>
+            <h3 className="text-2xl font-bold mb-4">Ready to Book?</h3>
             <p className="text-muted-foreground mb-6">
-              Create unforgettable memories with local families. Book your homestay experience now.
+              Experience tents and wellness pods at THE LUING VILLAGE. With dinner and breakfast included.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/booking">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Reserve Homestay
+                  Book Now
                 </Button>
               </Link>
               <Link href="/">

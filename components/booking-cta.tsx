@@ -98,7 +98,7 @@ export default function BookingCta() {
                 Ready for Your Mountain Escape?
               </h2>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                Book your stay at DARAMAILA FARMSTAY and embark on an unforgettable journey through pristine Himalayan beauty.
+                Book your stay at THE LUING VILLAGE and embark on an unforgettable journey through pristine Himalayan beauty.
               </p>
 
               <div className="space-y-3 pt-2">

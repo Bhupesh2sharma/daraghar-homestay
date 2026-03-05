@@ -1,11 +1,19 @@
 'use client'
 
+import Image from 'next/image'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
 import { Check, Wifi, Utensils, Wind, Shield } from 'lucide-react'
+
+const GLAMPING_IMAGES = [
+  '/images/WhatsApp Image 2026-03-05 at 14.31.55 (1).jpeg',
+  '/images/WhatsApp Image 2026-03-05 at 14.31.58 (1).jpeg',
+  '/images/WhatsApp Image 2026-03-05 at 14.31.59 (1).jpeg',
+  '/images/WhatsApp Image 2026-03-05 at 14.31.59.jpeg',
+]
 
 export default function GlampingPage() {
   return (
@@ -16,19 +24,25 @@ export default function GlampingPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center space-y-4 mb-12">
-            <h1 className="text-4xl sm:text-5xl font-bold">Luxury Glamping Experience</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold">Luxury Glamping Tents</h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Premium safari-style tents combining adventure with five-star comfort
             </p>
-            <p className="text-2xl font-bold text-primary">₹6,500 per night</p>
+            <div className="space-y-1">
+              <p className="text-2xl font-bold text-primary">₹2,000 / person</p>
+              <p className="text-sm text-muted-foreground">With dinner & breakfast</p>
+            </div>
           </div>
 
           {/* Main Image */}
-          <div className="relative h-96 sm:h-96 md:h-96 rounded-2xl overflow-hidden shadow-2xl mb-12">
-            <img
-              src="/placeholder.svg?height=600&width=1200"
-              alt="Glamping Tent"
-              className="w-full h-full object-cover"
+          <div className="relative h-96 sm:h-[28rem] md:h-[32rem] rounded-2xl overflow-hidden shadow-2xl mb-12">
+            <Image
+              src={encodeURI(GLAMPING_IMAGES[0])}
+              alt="Luxury Glamping Tents at THE LUING VILLAGE"
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
           </div>
@@ -39,7 +53,7 @@ export default function GlampingPage() {
               <div>
                 <h2 className="text-2xl font-bold mb-4">About Our Glamping Tents</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Experience the perfect blend of adventure and comfort at DARAMAILA FARMSTAY. Our luxury glamping tents are designed to provide an unforgettable stay surrounded by pristine mountain beauty. Each tent is meticulously appointed with modern amenities while maintaining an authentic connection to nature.
+                  Experience the perfect blend of adventure and comfort at THE LUING VILLAGE. Our luxury glamping tents are designed to provide an unforgettable stay surrounded by pristine mountain beauty. Each tent is meticulously appointed with modern amenities while maintaining an authentic connection to nature.
                 </p>
               </div>
 
@@ -70,11 +84,11 @@ export default function GlampingPage() {
               <Card className="border-primary/30 shadow-xl sticky top-24">
                 <CardContent className="p-8 space-y-6">
                   <div>
-                    <h3 className="font-bold text-lg mb-4">What's Included</h3>
+                    <h3 className="font-bold text-lg mb-4">What&apos;s Included</h3>
                     <div className="space-y-3">
                       {[
                         { icon: Wifi, text: 'High-speed WiFi' },
-                        { icon: Utensils, text: 'Breakfast & dinner' },
+                        { icon: Utensils, text: 'Dinner & breakfast' },
                         { icon: Wind, text: 'Airport transfer' },
                         { icon: Shield, text: 'Travel insurance' },
                       ].map((item, idx) => {
@@ -109,17 +123,14 @@ export default function GlampingPage() {
           <div className="mb-16">
             <h2 className="text-2xl font-bold mb-8">Gallery</h2>
             <div className="grid md:grid-cols-4 gap-4">
-              {[
-                '/placeholder.svg?height=300&width=400',
-                '/placeholder.svg?height=300&width=400',
-                '/placeholder.svg?height=300&width=400',
-                '/placeholder.svg?height=300&width=400',
-              ].map((img, idx) => (
+              {GLAMPING_IMAGES.map((src, idx) => (
                 <div key={idx} className="relative h-48 rounded-lg overflow-hidden group">
-                  <img
-                    src={img || "/placeholder.svg"}
-                    alt={`Glamping gallery ${idx + 1}`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  <Image
+                    src={encodeURI(src)}
+                    alt={`Luxury Glamping Tents - ${idx + 1}`}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
                   />
                 </div>
               ))}

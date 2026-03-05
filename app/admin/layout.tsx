@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
+import Image from 'next/image'
+import Link from 'next/link'
 import { SidebarProvider, SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import {
   Sidebar,
@@ -14,7 +16,6 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
 import { Home, BookOpen, Users, MessageSquare, Phone, CreditCard, Star, LayoutDashboard, LogOut } from 'lucide-react'
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
 const menuItems = [
@@ -133,15 +134,25 @@ export default function AdminLayout({
         <SidebarContent>
           <SidebarGroup>
             <SidebarGroupLabel>
-              <div className="flex items-center gap-2 px-2 py-2">
-                <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
-                  D
+              <Link href="/" className="flex items-center gap-2 px-2 py-2">
+                <Image
+                  src="/logo2.png"
+                  alt="THE LUING VILLAGE"
+                  width={52}
+                  height={52}
+                  className="rounded-full object-contain flex-shrink-0"
+                />
+                <div className="flex flex-col min-w-0">
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-px w-3 bg-primary/60 rounded-full shrink-0" />
+                    <span className="bg-gradient-to-r from-primary to-emerald-700 bg-clip-text font-bold text-sm text-transparent">THE LUING VILLAGE</span>
+                    <span className="h-px w-3 bg-primary/60 rounded-full shrink-0" />
+                  </div>
+                  <span className="text-[10px] text-muted-foreground uppercase tracking-wide mt-0.5">Homestay & Glamping</span>
+                  <span className="text-[10px] italic text-muted-foreground/90">A home away from home</span>
+                  <span className="text-[10px] text-muted-foreground mt-1 font-medium">Admin Panel</span>
                 </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-primary text-sm">DARAMAILA FARMSTAY</span>
-                  <span className="text-xs text-muted-foreground">Admin Panel</span>
-                </div>
-              </div>
+              </Link>
             </SidebarGroupLabel>
             <SidebarGroupContent className="pt-4">
               <SidebarMenu>

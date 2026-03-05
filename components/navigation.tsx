@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -72,11 +73,24 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
-              D
+          <Link href="/" className="flex items-center gap-3 group">
+            <Image
+              src="/logo1.png"
+              alt="THE LUING VILLAGE - Homestay & Glamping"
+              width={56}
+              height={56}
+              className="rounded-full object-contain flex-shrink-0"
+            />
+            <div className="block text-center min-w-0 max-w-[55vw] sm:max-w-none">
+              <div className="flex items-center justify-center gap-1.5 sm:gap-2">
+                <span className="hidden sm:block h-px w-6 bg-gradient-to-r from-transparent to-primary rounded-full shrink-0" />
+                <span className="bg-gradient-to-r from-primary via-emerald-700 to-primary bg-clip-text text-xs sm:text-lg font-bold leading-tight text-transparent">
+                  THE LUING VILLAGE
+                </span>
+                <span className="hidden sm:block h-px w-6 bg-gradient-to-l from-transparent to-primary rounded-full shrink-0" />
+              </div>
+              <span className="block text-[9px] sm:text-[10px] uppercase tracking-widest text-muted-foreground mt-0.5 truncate">Homestay & Glamping</span>
             </div>
-            <span className="hidden sm:inline-block text-lg font-bold text-primary">DARAMAILA FARMSTAY</span>
           </Link>
 
           {/* Desktop Menu */}

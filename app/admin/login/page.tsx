@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -68,11 +69,23 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-md">
         {/* Logo Section */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl shadow-lg mb-4">
-            <span className="text-2xl font-bold text-primary-foreground">D</span>
+          <Image
+            src="/logo2.png"
+            alt="THE LUING VILLAGE - Homestay & Glamping"
+            width={100}
+            height={100}
+            className="mx-auto rounded-full object-contain mb-4"
+          />
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <span className="h-0.5 w-8 bg-gradient-to-r from-transparent to-primary rounded-full" />
+            <h1 className="bg-gradient-to-r from-primary via-emerald-700 to-primary bg-clip-text text-3xl font-bold text-transparent">
+              THE LUING VILLAGE
+            </h1>
+            <span className="h-0.5 w-8 bg-gradient-to-l from-transparent to-primary rounded-full" />
           </div>
-          <h1 className="text-3xl font-bold text-foreground mb-2">DARAMAILA FARMSTAY</h1>
-          <p className="text-muted-foreground">Admin Login</p>
+          <p className="text-sm text-primary font-medium">Homestay & Glamping</p>
+          <p className="text-xs italic text-muted-foreground font-serif mb-2">A home away from home</p>
+          <p className="text-muted-foreground text-sm">Admin Login</p>
         </div>
 
         {/* Login Card */}
@@ -161,7 +174,7 @@ export default function AdminLoginPage() {
 
         {/* Footer */}
         <p className="text-center text-sm text-muted-foreground mt-6">
-          © {new Date().getFullYear()} DARAMAILA FARMSTAY. All rights reserved.
+          © {new Date().getFullYear()} THE LUING VILLAGE. All rights reserved.
         </p>
       </div>
     </div>
