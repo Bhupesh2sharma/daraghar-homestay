@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { Mail, Phone, MapPin, Facebook, Instagram, Twitter } from 'lucide-react'
+import Image from 'next/image'
+import { Mail, Phone, MapPin, Facebook, Instagram } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export default function Footer() {
@@ -14,12 +15,26 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-secondary to-primary rounded-lg flex items-center justify-center text-foreground font-bold">
-                D
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src="/logo2.png"
+                alt="THE LUING VILLAGE - Homestay & Glamping"
+                width={64}
+                height={64}
+                className="rounded-full object-contain flex-shrink-0"
+              />
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="h-px w-5 bg-gradient-to-r from-transparent to-primary rounded-full" />
+                  <span className="bg-gradient-to-r from-primary via-emerald-400 to-primary bg-clip-text font-bold text-lg leading-tight text-transparent">
+                    THE LUING VILLAGE
+                  </span>
+                  <span className="h-px w-5 bg-gradient-to-l from-transparent to-primary rounded-full" />
+                </div>
+                <span className="block text-xs uppercase tracking-wider text-background/70 mt-0.5">Homestay & Glamping</span>
+                <span className="block text-xs italic text-primary font-serif mt-0.5">A home away from home</span>
               </div>
-              <span className="font-bold text-lg">DARAMAILA FARMSTAY</span>
-            </div>
+            </Link>
             <p className="text-background/80">Experience authentic Sikkimese village life in our ancestral home on the peaceful slopes of Lower Luing, where generations of heritage meet warm hospitality.</p>
             <div className="flex gap-3">
               {[Facebook, Instagram].map((Icon, idx) => (
@@ -63,7 +78,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-primary flex-shrink-0" />
-                <a href="mailto:info@daramailafarmstay.com" className="hover:text-background transition-colors">info@daramailafarmstay.com</a>
+                <a href="mailto:info@luingvillage.com" className="hover:text-background transition-colors">info@luingvillage.com</a>
               </div>
             </div>
           </div>
@@ -90,7 +105,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="mt-12 flex flex-col sm:flex-row justify-between items-center gap-4 text-background/80 text-sm">
-          <p>&copy; {currentYear} DARAMAILA FARMSTAY. All rights reserved.</p>
+          <p>&copy; {currentYear} THE LUING VILLAGE. All rights reserved.</p>
           <p className="flex items-center gap-2">
             Made with <span className="text-red-400">♥</span> by <a href="https://waglogy.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors font-semibold">Waglogy</a>
           </p>

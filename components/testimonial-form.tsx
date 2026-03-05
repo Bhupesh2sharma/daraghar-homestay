@@ -157,7 +157,7 @@ export default function TestimonialForm() {
     <div className="bg-card rounded-xl shadow-lg border border-border/50 p-8 max-w-2xl mx-auto">
       <h3 className="text-2xl font-bold text-foreground mb-2">Share Your Experience</h3>
       <p className="text-muted-foreground mb-8">
-        We'd love to hear about your stay at DARAMAILA FARMSTAY. Your feedback helps us improve and helps other travelers discover us!
+        We'd love to hear about your stay at THE LUING VILLAGE. Your feedback helps us improve and helps other travelers discover us!
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-6">

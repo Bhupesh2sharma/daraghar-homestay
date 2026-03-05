@@ -189,7 +189,7 @@ export default function ContactPage() {
                 {
                   icon: MapPin,
                   title: 'Location',
-                  content: 'DARAMAILA FARMSTAY, Gangtok, Sikkim - 737101',
+                  content: 'THE LUING VILLAGE, Gangtok, Sikkim - 737101',
                 },
                 {
                   icon: Phone,
@@ -200,8 +200,8 @@ export default function ContactPage() {
                 {
                   icon: Mail,
                   title: 'Email',
-                  content: 'info@daramailafarmstay.com',
-                  href: 'mailto:info@daramailafarmstay.com',
+                  content: 'info@luingvillage.com',
+                  href: 'mailto:info@luingvillage.com',
                 },
                 {
                   icon: Clock,

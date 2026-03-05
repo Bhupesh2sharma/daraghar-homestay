@@ -1,10 +1,62 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
+import type { CarouselApi } from '@/components/ui/carousel'
 import { Tent, Home, Wind } from 'lucide-react'
+
+const AUTOPLAY_INTERVAL_MS = 4000
+
+function AccommodationCardCarousel({ images, title }: { images: string[]; title: string }) {
+  const [api, setApi] = useState<CarouselApi | null>(null)
+
+  useEffect(() => {
+    if (!api) return
+    const interval = setInterval(() => {
+      api.scrollNext()
+    }, AUTOPLAY_INTERVAL_MS)
+    return () => clearInterval(interval)
+  }, [api])
+
+  return (
+    <Carousel opts={{ loop: true }} className="w-full h-full" setApi={setApi}>
+      <CarouselContent className="h-full -ml-0">
+        {images.map((imgSrc, idx) => (
+          <CarouselItem key={idx} className="h-full pl-0">
+            <div className="relative h-48 sm:h-56 md:h-64 w-full">
+              <Image
+                src={encodeURI(imgSrc)}
+                alt={`${title} - ${idx + 1}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious className="left-2 size-8 bg-black/50 hover:bg-black/70 border-0 text-white" />
+      <CarouselNext className="right-2 size-8 bg-black/50 hover:bg-black/70 border-0 text-white" />
+    </Carousel>
+  )
+}
+
+const GLAMPING_CAROUSEL_IMAGES = [
+  '/images/WhatsApp Image 2026-03-05 at 14.31.55 (1).jpeg',
+  '/images/WhatsApp Image 2026-03-05 at 14.31.58 (1).jpeg',
+  '/images/WhatsApp Image 2026-03-05 at 14.31.59 (1).jpeg',
+  '/images/WhatsApp Image 2026-03-05 at 14.31.59.jpeg',
+]
+
+const WELLNESS_PODS_CAROUSEL_IMAGES = [
+  '/images/WhatsApp Image 2026-03-05 at 14.31.47 (2).jpeg',
+  '/images/WhatsApp Image 2026-03-05 at 14.31.49.jpeg',
+  '/images/WhatsApp Image 2026-03-05 at 14.31.54.jpeg',
+]
 
 export default function Accommodations() {
   const accommodations = [
@@ -14,9 +66,10 @@ export default function Accommodations() {
       description: 'Premium safari-style tents with all modern amenities',
       icon: Tent,
       features: ['En-suite bathrooms', 'Heated beds', 'Mountain views', '24/7 service'],
-      price: '₹1,500 / person',
+      price: '₹2,000 / person',
+      priceNote: 'With dinner & breakfast',
       link: '/accommodations/glamping',
-      image: 'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&w=800&q=80'
+      carouselImages: GLAMPING_CAROUSEL_IMAGES,
     },
     {
       id: 2,
@@ -25,18 +78,20 @@ export default function Accommodations() {
       icon: Home,
       features: ['Organic meals', 'Local guides', 'Cultural immersion', 'Family rooms'],
       price: '₹1,500 / person',
+      priceNote: 'With dinner & breakfast',
       link: '/accommodations/homestay',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
     },
     {
       id: 3,
-      title: 'Mountain Wellness Pods',
-      description: 'Modern eco-friendly pods with panoramic views',
+      title: 'Tents & Mountain Wellness Pods',
+      description: 'Modern eco-friendly pods and tents with panoramic views',
       icon: Wind,
       features: ['Sustainable design', 'Nature sounds', 'Meditation space', 'Sky windows'],
       price: '₹1,500 / person',
+      priceNote: 'With dinner & breakfast',
       link: '/accommodations/pods',
-      image: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80'
+      carouselImages: WELLNESS_PODS_CAROUSEL_IMAGES,
     },
   ]
 
@@ -56,17 +111,25 @@ export default function Accommodations() {
         <div className="grid md:grid-cols-3 gap-4 md:gap-6">
           {accommodations.map((acc) => {
             const Icon = acc.icon
+            const hasCarousel = 'carouselImages' in acc && acc.carouselImages?.length
             return (
               <Card key={acc.id} className="group border-primary/20 hover:border-primary/50 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl flex flex-col">
-                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
-                  <Image
-                    src={acc.image}
-                    alt={acc.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4 text-white flex items-center gap-2">
+                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-muted">
+                  {hasCarousel ? (
+                    <AccommodationCardCarousel
+                      images={acc.carouselImages!}
+                      title={acc.title}
+                    />
+                  ) : (
+                    <Image
+                      src={acc.image!}
+                      alt={acc.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+                  <div className="absolute bottom-4 left-4 text-white flex items-center gap-2 pointer-events-none">
                     <div className="p-2 bg-primary/20 backdrop-blur-sm rounded-lg">
                       <Icon size={20} className="text-white" />
                     </div>
@@ -91,7 +154,9 @@ export default function Accommodations() {
                   <div className="flex items-center justify-between pt-4 border-t border-border mt-auto">
                     <div className="flex flex-col">
                       <span className="text-lg sm:text-xl font-bold text-primary">{acc.price}</span>
-                      <span className="text-[10px] text-muted-foreground uppercase tracking-wider">Includes Meals</span>
+                      <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
+                        {'priceNote' in acc && acc.priceNote ? acc.priceNote : 'Includes Meals'}
+                      </span>
                     </div>
                     <Link href={acc.link}>
                       <Button size="sm" className="bg-primary hover:bg-primary/90 text-xs sm:text-sm">

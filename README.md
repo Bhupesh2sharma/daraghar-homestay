@@ -1,8 +1,8 @@
-# 🏔️ DARAMAILA FARMSTAY - Luxury Mountain Retreat
+# 🏔️ THE LUING VILLAGE - Luxury Mountain Retreat
 
 <div align="center">
 
-![DARAMAILA FARMSTAY](https://img.shields.io/badge/DARAMAILA%20FARMSTAY-Luxury%20Retreat-4CAF50?style=for-the-badge)
+![THE LUING VILLAGE](https://img.shields.io/badge/THE%20LUING%20VILLAGE-Luxury%20Retreat-4CAF50?style=for-the-badge)
 ![Next.js](https://img.shields.io/badge/Next.js-16.0-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
 ![React](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react)
@@ -19,7 +19,7 @@
 
 ## 📖 About
 
-**DARAMAILA FARMSTAY** is a luxury mountain retreat offering premium glamping tents, authentic homestays, and modern wellness pods in the beautiful region of Sikkim, near Gangtok. This website provides a seamless booking experience for travelers seeking an immersive mountain getaway with modern amenities and cultural experiences.
+**THE LUING VILLAGE** is a luxury mountain retreat offering premium glamping tents, authentic homestays, and modern wellness pods in the beautiful region of Sikkim, near Gangtok. This website provides a seamless booking experience for travelers seeking an immersive mountain getaway with modern amenities and cultural experiences.
 
 ### 🌟 Key Highlights
 
@@ -294,7 +294,7 @@ This project is proprietary and confidential. All rights reserved.
 
 <div align="center">
 
-**Made with ❤️ by Waglogy for DARAMAILA FARMSTAY**
+**Made with ❤️ by Waglogy for THE LUING VILLAGE**
 
 ⭐ Star this repo if you find it helpful!
 
