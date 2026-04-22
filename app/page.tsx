@@ -6,7 +6,6 @@ import Hero from '@/components/hero'
 import OurStory from '@/components/our-story'
 import Accommodations from '@/components/accommodations'
 import Experiences from '@/components/experiences'
-import Dining from '@/components/dining'
 import Attractions from '@/components/attractions'
 import TestimonialsDisplay from '@/components/testimonials-display'
 import Gallery from '@/components/gallery'
@@ -48,7 +47,6 @@ export default function Home() {
       <OurStory />
       <Accommodations />
       <BookingCta />
-      <Dining />
       <Experiences />
       <TestimonialsDisplay />
       <Gallery />

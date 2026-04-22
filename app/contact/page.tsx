@@ -194,14 +194,14 @@ export default function ContactPage() {
                 {
                   icon: Phone,
                   title: 'Phone',
-                  content: '+91 9876 543 210',
-                  href: 'tel:+919876543210',
+                  content: '+91 9647884159',
+                  href: 'tel:+919647884159',
                 },
                 {
                   icon: Mail,
                   title: 'Email',
-                  content: 'info@luingvillage.com',
-                  href: 'mailto:info@luingvillage.com',
+                  content: 'theluingvillage@gmail.com',
+                  href: 'mailto:theluingvillage@gmail.com',
                 },
                 {
                   icon: Clock,

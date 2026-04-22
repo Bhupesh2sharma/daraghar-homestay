@@ -74,11 +74,11 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={18} className="text-primary flex-shrink-0" />
-                <a href="tel:+919876543210" className="hover:text-background transition-colors">+91 9876 543 210</a>
+                <a href="tel:+919647884159" className="hover:text-background transition-colors">+91 9647884159</a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-primary flex-shrink-0" />
-                <a href="mailto:info@luingvillage.com" className="hover:text-background transition-colors">info@luingvillage.com</a>
+                <a href="mailto:theluingvillage@gmail.com" className="hover:text-background transition-colors">theluingvillage@gmail.com</a>
               </div>
             </div>
           </div>
