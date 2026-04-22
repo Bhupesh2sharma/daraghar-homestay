@@ -72,7 +72,7 @@ export default function Dining() {
                                     <UtensilsCrossed className="w-5 h-5 text-primary" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg sm:text-xl font-bold text-foreground">Village Dinner</h3>
+                                    <h3 className="text-lg sm:text-xl font-bold text-foreground">Dinner</h3>
                                     <p className="text-xs text-muted-foreground">Local Organic Village Feast</p>
                                 </div>
                             </div>
